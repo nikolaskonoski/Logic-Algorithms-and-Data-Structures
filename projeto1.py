@@ -35,3 +35,5 @@ if numero_usuario >= 0: # Inclui o caso do fatorial de 0, que é 1
         fatorial = fatorial * numero
     print(f"O fatorial de {input} é {fatorial}")
     print(f"O fatorial de {numero_usuario} é {fatorial}")
+else:
+    print("O fatorial não é definido para números negativos.")
