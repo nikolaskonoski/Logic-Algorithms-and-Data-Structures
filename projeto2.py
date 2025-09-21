@@ -47,18 +47,3 @@ while acertou == False:
         print("Parabéns! Você acertou!")    
         acertou = True
 print("Você acertou!")    
-print("Eu gerei um número de 1 a 10. Tente adivinhar!")
-
-while not acertou:
-    try:
-        chute = int(input("Qual é o seu chute? "))
-        if chute > numero_aleatorio:
-            print("Muito alto! Tente um número menor.")
-        elif chute < numero_aleatorio:
-            print("Muito baixo! Tente um número maior.")
-        else: # chute == numero_aleatorio
-            acertou = True
-    except ValueError:
-        print("Entrada inválida. Por favor, digite um número inteiro.")
-
-print(f"Parabéns! Você acertou! O número era {numero_aleatorio}.")

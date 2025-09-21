@@ -25,15 +25,9 @@ print(fatorial)
 ''' 
 
 input = int(input("Digite um número inteiro não negativo para calcular o fatorial: "))
-numero_usuario = int(input("Digite um número inteiro não negativo para calcular o fatorial: "))
 
 if input > 0:
-if numero_usuario >= 0: # Inclui o caso do fatorial de 0, que é 1
     fatorial = 1 
     for numero in range(1, input + 1):
-    for numero in range(1, numero_usuario + 1):
         fatorial = fatorial * numero
     print(f"O fatorial de {input} é {fatorial}")
-    print(f"O fatorial de {numero_usuario} é {fatorial}")
-else:
-    print("O fatorial não é definido para números negativos.")
