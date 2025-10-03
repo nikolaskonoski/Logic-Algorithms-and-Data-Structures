@@ -21,13 +21,17 @@ try:
         if idade < IDADE_NECESSARIA:
             anos_que_faltam = IDADE_NECESSARIA - idade
             ano_alistamento = ANO_ATUAL + anos_que_faltam
+
             print(f"Ainda faltam {anos_que_faltam} anos para o alistamento.")
             print(f"Seu alistamento será em {ano_alistamento}.")
+
         elif idade > IDADE_NECESSARIA:
             anos_passados = idade - IDADE_NECESSARIA
             ano_alistamento = ANO_ATUAL - anos_passados
+
             print(f"Você já deveria ter se alistado há {anos_passados} anos.")
             print(f"Seu alistamento foi em {ano_alistamento}.")
+            
         else: # idade == IDADE_NECESSARIA
             print("Você tem que se alistar IMEDIATAMENTE!")
 
