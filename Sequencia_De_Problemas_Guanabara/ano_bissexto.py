@@ -19,7 +19,7 @@ try:
 
         isDivisibleBy4= (ano_inserido % 4) == 0
         isNotDivisibleBy100= (ano_inserido % 100) != 0
-        if (isDivisibleBy4 and isNotDivisibleBy100)
+        if (isDivisibleBy4 and isNotDivisibleBy100):
             print(f"O ano {ano_inserido} é BISSEXTO.")
         else:
             isDivisibleBy400= (ano_inserido % 400) == 0
