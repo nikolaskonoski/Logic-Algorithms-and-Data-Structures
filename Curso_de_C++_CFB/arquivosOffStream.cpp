@@ -7,7 +7,7 @@ int main()
 {
     //offstream - fluxo de saída (escrita)
     ofstream arquivo;
-    arquivo.open("arquivo.txt", ios::app); //ios::app - modo de anexar (adicionar conteúdo ao final do arquivo sem apagar o conteúdo existente)
+    arquivo.open("arquivo.txt", ios::app); //ios::app - modo de anexar/ concatenar (adicionar conteúdo ao final do arquivo sem apagar o conteúdo existente)
 
         arquivo << "Curso de C++ CFB Cursos\n";
         arquivo << "Curso de C++ Avançado\n";
