@@ -47,6 +47,8 @@ int main() {
     cout << "Ultimo valor do vector: " << num1.back() << "\n";
     cout << "Valor do meio do vector: " << num1.at(tam1/2) << "\n";
     cout << "Novo tamanho de num1: " << num1.size() << "\n";
+
+
     
     return 0;    
 }
