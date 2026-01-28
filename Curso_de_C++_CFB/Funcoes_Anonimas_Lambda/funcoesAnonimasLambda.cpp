@@ -52,8 +52,11 @@ Exemplo de uso de um funcao lambda para ordenar um vetor de inteiros em ordem cr
 }
 
 /*
-Entendi que as funções anônimas (lambdas) em C++ são úteis para criar pequenas funções inline sem a necessidade de defini-las separadamente. Elas podem capturar variáveis do escopo externo por valor ou por referência, o que as torna flexíveis para diversas situações, como operações simples ou como argumentos para outras funções. No exemplo fornecido, vimos como criar uma função lambda para somar quatro variáveis e outra para encontrar o maior número entre dois inteiros.
-Consigo fazer a captura de variáveis usando diferentes métodos, como por valor (usando '=') ou por referência (usando '&'). Além disso, as lambdas podem ser usadas para operações mais complexas, como ordenar vetores ou realizar cálculos específicos, tornando o código mais conciso e legível.
+Entendi que as funções anônimas (lambdas) em C++ são úteis para criar pequenas funções inline sem a necessidade de defini-las separadamente. 
+Elas podem capturar variáveis do escopo externo por valor ou por referência, o que as torna flexíveis para diversas situações, como operações simples ou como argumentos para outras funções.
+No exemplo fornecido, vimos como criar uma função lambda para somar quatro variáveis e outra para encontrar o maior número entre dois inteiros.
+Consigo fazer a captura de variáveis usando diferentes métodos, como por valor (usando '=') ou por referência (usando '&'). 
+Além disso, as lambdas podem ser usadas para operações mais complexas, como ordenar vetores ou realizar cálculos específicos, tornando o código mais conciso e legível.
 
 Ex:plo de captura por referência:
    int a = 10;
