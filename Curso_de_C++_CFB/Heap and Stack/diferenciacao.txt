@@ -1,0 +1,87 @@
+Essa é uma das distinções mais importantes em C++ e entender isso vai mudar a forma como você programa.
+
+Vamos comparar a Stack (Pilha) e a Heap (Monte) usando o seu exemplo do Carro.
+
+1. A Stack (Pilha) – Onde você criou c1
+É onde a memória é alocada quando você declara variáveis normais dentro de uma função.
+
+C++
+// Seu código atual
+Carro c1("Nikolas", 350); 
+Performance: Extremamente rápida.
+
+Como funciona: A CPU apenas move um ponteiro para "reservar" espaço. É como empilhar um prato.
+
+Limpeza: Automática. Quando a função main fecha a chave }, a "pilha" desmorona e o destrutor do Carro é chamado sozinho.
+
+Acesso: Direto (usando o ponto .). Ex: c1.nome.
+
+Desvantagem: O espaço é pequeno (alguns MBs). Se você tentar criar um array gigante aqui, o programa trava (Stack Overflow).
+
+2. A Heap (Monte) – Onde se usa new
+É uma área de memória muito maior, livre e desorganizada, usada para alocação dinâmica.
+
+C++
+// Se você usasse new
+Carro* c2 = new Carro("Ferrari", 500);
+Performance: Mais lenta para alocar.
+
+Como funciona: O sistema operacional precisa pausar, procurar na memória RAM um bloco livre desse tamanho, marcar como ocupado e devolver o endereço.
+
+Limpeza: Manual. O objeto fica lá para sempre ocupando RAM até você dar o comando delete c2;. Se esquecer, gera vazamento de memória (Memory Leak).
+
+Acesso: Indireto via ponteiro (usando a seta ->). Ex: c2->nome.
+
+Vantagem: O espaço é gigante (limitado apenas pela RAM do PC) e você controla o tempo de vida do objeto (ele pode sobreviver mesmo depois que a função termina).
+
+Comparativo Visual (Analogia)
+Imagine que você está trabalhando em um escritório:
+
+Stack (Sua Mesa):
+
+Você precisa de uma anotação rápida. Você pega um post-it e cola na mesa.
+
+É instantâneo. Está ao alcance da mão.
+
+Mas a mesa é pequena. Se encher de papel, acabou o espaço.
+
+Quando você vai embora (fim da função), a faxineira limpa a mesa automaticamente.
+
+Heap (O Arquivo no Porão):
+
+Você precisa guardar uma caixa grande. Não cabe na mesa.
+
+Você tem que chamar o almoxarife, descer até o porão, procurar uma prateleira vazia e colocar a caixa lá.
+
+Demora mais. Você ganha um papelzinho dizendo onde está a caixa (o ponteiro/endereço).
+
+Quando você vai embora, a caixa continua lá. Se você não mandar ninguém jogar fora (delete), o porão vai encher de lixo eternamente.
+
+Resumo em Código
+Aqui está como os dois se comportam lado a lado:
+
+C++
+void testePerformance() {
+    // --- STACK (Recomendado para 90% dos casos) ---
+    // Alocação: Instantânea (1 instrução de CPU)
+    // Acesso: Rápido (memória contígua, amigável ao cache)
+    Carro c1("Stack", 100); 
+    c1.velMax = 200;       // Acesso direto com ponto (.)
+    // FIM DA FUNÇÃO: c1 é destruído automaticamente.
+
+
+    // --- HEAP (Use quando o objeto for muito grande ou complexo) ---
+    // Alocação: Lenta (chama o Sistema Operacional)
+    // Acesso: Levemente mais lento (indireção de ponteiro)
+    Carro* c2 = new Carro("Heap", 200);
+    c2->velMax = 300;      // Acesso via ponteiro com seta (->)
+    
+    // Perigo: Se a função acabar aqui, c2 continua na memória!
+    delete c2; // Obrigatório limpar manualmente.
+}
+O "Pulo do Gato" do C++ Moderno
+Como você está estudando C++ Moderno (vi pelo nome do arquivo), aqui vai uma dica de ouro:
+
+Hoje em dia, tentamos evitar usar new e delete puros ("raw pointers"). Eles são propensos a erros. Se você realmente precisa usar a Heap, o C++ moderno (C++11 em diante) introduziu os Smart Pointers (std::unique_ptr e std::shared_ptr). Eles alocam na Heap, mas se deletam sozinhos quando não são mais usados, unindo o melhor dos dois mundos.
+
+Quer que eu mostre como transformar esse exemplo para usar unique_ptr e nunca mais precisar se preocupar com delete?
